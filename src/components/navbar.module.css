@@ -1,0 +1,23 @@
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 1rem 2rem;
+    background-color: rgb(8, 17, 43);
+    color: white;
+    width: 100%;
+    position: sticky;
+    z-index: 1000px;
+    top: 0;
+}
+
+.navItems{
+    display: flex;
+    list-style: none;
+}
+
+.navItem{
+    display: inline;
+    cursor: pointer;
+    font-size: 50px;
+}
