@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-import Navbar from "src/components/navbar";
+import Navbar from "src/components/navbar/navbar";
 
 export const metadata: Metadata = {
   title: "About CPU",
