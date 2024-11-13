@@ -11,15 +11,16 @@ export function getCursorPos(event: MouseEvent)
 }
 
 export function chase(image: SVGSVGElement, startX: number, startY: number) {
-    currPosX = startX;
-    currPosY = startY;
+    //currPosX = startX;
+    //currPosY = startY;
     
+    /*
     if (posX < currPosX) {
         currPosX -= 1;
-        
     }
-    console.log(1);
-    image.setAttribute("transform", `translate(${currPosX}, ${currPosY})`);
+    */
+    //console.log(1);
+    //image.setAttribute("transform", `translate(${currPosX}, ${currPosY})`);
     //image.setAttribute("transform", `translate(${startX}, ${startY})`);
     //image.setAttribute("transform", `translate(${posX}, ${posY})`);
 }
