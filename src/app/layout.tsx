@@ -1,12 +1,16 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+// Components
 import Navbar from "src/components/navbar/navbar";
+import ClientLayout from "./clientLayout";
+
 
 export const metadata: Metadata = {
   title: "About CPU",
   description: "A school project web page",
 };
+
 
 export default function RootLayout({
   children,
@@ -17,7 +21,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
-        {children}
+        <ClientLayout>{children}</ClientLayout>
       </body>
     </html>
   );

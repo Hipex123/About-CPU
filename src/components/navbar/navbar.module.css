@@ -31,6 +31,7 @@
     font-weight: 500;
     transition: background-color 0.5s;
     user-select: none;
+    white-space: nowrap;
 }
 
 .navItem a {
