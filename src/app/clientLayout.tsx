@@ -1,20 +1,24 @@
 "use client";
 
 import styles from "../components/pacman/pacman.module.css";
-import React, { useEffect } from "react";
-import { getCursorPos, chase, getRandomInt} from "../components/pacman/pacman";
+import React, { useEffect, useState } from "react";
+import { chase, getCursorPos, setStartPos, getRandomInt } from "../components/pacman/pacman";
 import { useRef } from "react";
 
 export default function ClientLayout({children}: {children: React.ReactNode}) {
     const svgRef = useRef(null);
 
-    const startX = getRandomInt(800, 1700);
-    const startY = getRandomInt(0, 500);
+    const [posX, setPosX] = useState(getRandomInt(800, 1700));
+    const [posY, setPosY] = useState(getRandomInt(0, 500));
+
+    setStartPos(posX, posY);
 
     useEffect(() => {
         const tick = () => {
             if (svgRef.current) {
-                chase(svgRef.current, startX, startY);
+                const [newPosX, newPosY] = chase(svgRef.current);
+                setPosX(newPosX);
+                setPosY(newPosY);
             }
             requestAnimationFrame(tick);
         };
@@ -40,7 +44,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
                 xmlns="http://www.w3.org/2000/svg"
                 ref={svgRef}
                 className={styles.pacman}
-                style={{transform: `translate(${startX}px, ${startY}px)`}}>
+                style={{transform: `translate(${posX}px, ${posY}px)`}}>
                 <defs
                     id="defs1" />
                 <g
