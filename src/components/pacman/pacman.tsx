@@ -5,7 +5,7 @@ let currPosY: number;
 
 export function chase(image: SVGSVGElement) {
     const speed = 1;
-    const treshold = 10;
+    const treshold = 0;
 
     const dx = mouseX - currPosX;
     const dy = mouseY - currPosY;
@@ -17,14 +17,16 @@ export function chase(image: SVGSVGElement) {
         currPosY += Math.sign(dy) * speed;
     }
 
+    /*
     console.log(`Mouse POS: ${mouseX}, ${mouseY}
         \nPac POS: ${currPosX}, ${currPosY}`);
+    */
     
     return [currPosX, currPosY];
 }
 
 export function getCursorPos(event: MouseEvent) {
-    mouseX = event.clientX;
+    mouseX = event.clientX-60;
     mouseY = event.clientY-365;
     //console.log(`${posX}, ${posY}`);
 }

@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { chase, getCursorPos, setStartPos, getRandomInt } from "../components/pacman/pacman";
 import { useRef } from "react";
 
+
 export default function ClientLayout({children}: {children: React.ReactNode}) {
     const svgRef = useRef(null);
 
@@ -12,6 +13,21 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     const [posY, setPosY] = useState(getRandomInt(0, 500));
 
     setStartPos(posX, posY);
+
+    let pacImages = {
+    full: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAT0lEQVQoFWNkQAP//zP8RxNiYGRkYEQWg3OwKUZWCGLDNIM1EaMBZgBIIxOMQwrNSIotMIPJsmmQa6JjkMOCkZigR0kRMI0gGptmmGKYOgCKhBURRg4NdgAAAABJRU5ErkJggg==",
+    rightOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZUlEQVQoFYWSUQrAMAhDdez+V3akw+JKkvmjWJ8JbTNIVEWd7czI7t1dILPhed71ph0wVQBeTat8AphbSkqFAYCkkgIk5AAJKbsAENKeA3+vnFmVSq8R/uBbCUPW0vhGH8huH9AD/SUeFNBCLRUAAAAASUVORK5CYII=",
+    rightMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAYklEQVQoFb2SSw4AIQhDqZn7XxmDSU3HD2E240YhfQVR2LLczZeUAQbNzeAkVmGcCQ+oAtAgwMbgy45qFbYW5k9WQYWq26CbUKG0vZtBCr3c5a1+HDlbqIyed5zfKIMppqYDYucbHCQldGAAAAAASUVORK5CYII=",
+    leftOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAbklEQVQoFY2QUQrAMAhDdez+V3ZkLBKlyvyotuZFqdsXERasmd3NWWvOxxNEYYcTguAveNENuTtqT+syiY1pIk3LJEJs8t7zEYJoA0doWhGGR2gD3i1waEyArlsmTYCaos4v3wCdAujGMUUXU/cAxcUbGgkJLKAAAAAASUVORK5CYII=",
+    leftMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAXElEQVQoFaWSUQoAIAhDtfvf2TBYrChZ1E8pe5tIbtuJsNha5m7OvVmcxCzMN+ABKQAMEmwoXu45XkJq4gJxWmVwhSqDKyQnVUJOHkmqOMH/lStpy4/geU8wxNB1PT0hAYFU01IAAAAASUVORK5CYII=",
+    upOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAXklEQVQoFb2RQQ4AIQgDYf//Z0w3KcGK0ZNeCLRjI5q9Oh5hgTB381MovR+NHLDXWvWEYKpChXQ+QR2oADwLVMEOgP4/fifCoAcLa5PUqH2u+SaN35IQb+tgmul5VwdyASb0Jbd7IQAAAABJRU5ErkJggg==",
+    upMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZUlEQVQoFaWPgQoAIQhDtf//Z2PBDlkLigui1LetIv6sqihs56GzAegEqwG5JepDDtjTGv3hmhS4E/yW5EDtWRHTeV6JFNI6T24K9jpRvAgzI+2fuqu7r6TbNKSA/UR0dE8lTGYC6ckv7F8xFIAAAAAASUVORK5CYII=",
+    downOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWUlEQVQoFb2PUQoAIAhDtfvf2Vhg1FIqiPwx9c2ZyK9QNjIT456qTFwvIjgTN9GJwBfAtXhxkzVzwcZsFjr5xz3zFYuIQa6xYBJFACDudxEPAI+xm4/su3cFrhYPJD3qBfAAAAAASUVORK5CYII=",
+    downMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAYklEQVQoFZWOUQoAIAhDtfvf2TBYjKVg/ehsb+omL8JCRuZuzrMrKjMbswd8oAmAgAQXxE/1ny0Ibjfhfhi5thCbtC8hbEEdQWpSvbo0NUKn/zlPQ1QnfKDqA8lcpz5mbr8BsVAMLfEG6rQAAAAASUVOK5CYII="
+    };
+    const keys = Object.keys(pacImages) as (keyof typeof pacImages)[];
+
+    //let currentFrame = pacImages.downMidOpen;
 
     useEffect(() => {
         const tick = () => {
@@ -34,6 +50,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     return (
         <>
             {children}
+
             <svg
                 version="1.1"
                 id="svg1"
@@ -54,7 +71,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
                     height="13"
                     preserveAspectRatio="none"
                     style={{ imageRendering: "optimizeSpeed" } as any}
-                    xlinkHref="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA&#10;T0lEQVQoFWNkQAP//zP8RxNiYGRkYEQWg3OwKUZWCGLDNIM1EaMBZgBIIxOMQwrNSIotMIPJsmmQ&#10;a6JjkMOCkZigR0kRMI0gGptmmGKYOgCKhBURRg4NdgAAAABJRU5ErkJggg==&#10;"
+                    href={pacImages[keys[0]]}
                     id="image1" />
                 </g>
             </svg>
