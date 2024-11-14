@@ -5,6 +5,7 @@ let currPosY: number;
 
 export function chase() {
     let movementWay = 0;
+    const speed = 2;
 
     const treshold = 0;
 
@@ -15,7 +16,7 @@ export function chase() {
 
     if (Math.abs(dx) > treshold) {
 
-        currPosX += Math.sign(dx);
+        currPosX += Math.abs(dx) < speed ? 1 : Math.sign(dx) * speed;
 
         if (Math.sign(dx) == 1){
             movementWay = 0;
@@ -27,7 +28,7 @@ export function chase() {
     else if (Math.abs(dy) > treshold) {
         if (currPosY > -250) {
 
-            currPosY += Math.sign(dy);
+            currPosY += Math.sign(dy) * (Math.abs(dx) < speed ? 1 : Math.sign(dx) * speed);
 
             if (Math.sign(dy) == 1){
                 movementWay = 6;

@@ -54,10 +54,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
         requestAnimationFrame(tick);
 
         const animation = setInterval(() => {
-            if (baseAnimIndex[animIndexCouter] == 0) {
-                setAnimFrame(0);
-            }
-            else if (movWay < 0) {
+            if (baseAnimIndex[animIndexCouter] === 0 || movWay < 0) {
                 setAnimFrame(0);
             }
             else {
