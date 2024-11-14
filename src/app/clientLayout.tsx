@@ -5,6 +5,13 @@ import React, { useEffect, useState } from "react";
 import { chase, getCursorPos, setStartPos, getRandomInt } from "../components/pacman/pacman";
 import { useRef } from "react";
 
+let wayIndex: { [way: number]: number } = {};
+wayIndex[0] = 0;
+wayIndex[1] = 3;
+wayIndex[2] = 1;
+wayIndex[3] = 5;
+wayIndex[4] = 7;
+
 
 export default function ClientLayout({children}: {children: React.ReactNode}) {
     const svgRef = useRef(null);
@@ -25,25 +32,44 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     downOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWUlEQVQoFb2PUQoAIAhDtfvf2Vhg1FIqiPwx9c2ZyK9QNjIT456qTFwvIjgTN9GJwBfAtXhxkzVzwcZsFjr5xz3zFYuIQa6xYBJFACDudxEPAI+xm4/su3cFrhYPJD3qBfAAAAAASUVORK5CYII=",
     downMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAYklEQVQoFZWOUQoAIAhDtfvf2TBYjKVg/ehsb+omL8JCRuZuzrMrKjMbswd8oAmAgAQXxE/1ny0Ibjfhfhi5thCbtC8hbEEdQWpSvbo0NUKn/zlPQ1QnfKDqA8lcpz5mbr8BsVAMLfEG6rQAAAAASUVOK5CYII="
     };
+
     const keys = Object.keys(pacImages) as (keyof typeof pacImages)[];
 
-    //let currentFrame = pacImages.downMidOpen;
+    const [animFrame, setAnimFrame] = useState(0);
+    let [movWay, setMovWay] = useState(0);
+
+    let animIndexCouter = 0;
+    let baseAnimIndex = [0, 2, 1, 2];
 
     useEffect(() => {
         const tick = () => {
-            if (svgRef.current) {
-                const [newPosX, newPosY] = chase(svgRef.current);
-                setPosX(newPosX);
-                setPosY(newPosY);
-            }
+            const [newPosX, newPosY, newMovWay] = chase();
+            setPosX(newPosX);
+            setPosY(newPosY);
+            movWay = newMovWay;
             requestAnimationFrame(tick);
         };
 
         window.addEventListener("mousemove", getCursorPos);
         requestAnimationFrame(tick);
 
+        const animation = setInterval(() => {
+            if (baseAnimIndex[animIndexCouter] == 0) {
+                setAnimFrame(0);
+            }
+            else if (movWay < 0) {
+                setAnimFrame(0);
+            }
+            else {
+                setAnimFrame(baseAnimIndex[animIndexCouter]+movWay);
+            }
+
+            animIndexCouter = (animIndexCouter + 1) % baseAnimIndex.length;
+        }, 100);
+
         return () => {
             window.removeEventListener("mousemove", getCursorPos);
+            clearInterval(animation);
         };
     }, []);
 
@@ -71,7 +97,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
                     height="13"
                     preserveAspectRatio="none"
                     style={{ imageRendering: "optimizeSpeed" } as any}
-                    href={pacImages[keys[0]]}
+                    href={pacImages[keys[animFrame]]}
                     id="image1" />
                 </g>
             </svg>

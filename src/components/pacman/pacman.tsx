@@ -3,26 +3,57 @@ let mouseY: number;
 let currPosX: number;
 let currPosY: number;
 
-export function chase(image: SVGSVGElement) {
-    const speed = 1;
+export function chase() {
+    let movementWay = 0;
+
     const treshold = 0;
 
     const dx = mouseX - currPosX;
-    const dy = mouseY - currPosY;
+    const dy = mouseY - currPosY; 
+
+    document.body.style.cursor = "auto";
 
     if (Math.abs(dx) > treshold) {
-        currPosX += Math.sign(dx) * speed;
+
+        currPosX += Math.sign(dx);
+
+        if (Math.sign(dx) == 1){
+            movementWay = 0;
+        }
+        else {
+            movementWay = 2;
+        }
     }
     else if (Math.abs(dy) > treshold) {
-        currPosY += Math.sign(dy) * speed;
+        if (currPosY > -250) {
+
+            currPosY += Math.sign(dy);
+
+            if (Math.sign(dy) == 1){
+                movementWay = 6;
+            }
+            else {
+                movementWay = 4;
+            }
+        }
+        else if (mouseY > -200) {
+            currPosY += 1
+        }
+        else {
+            movementWay = -100;
+        } 
+    }
+
+    if (mouseX == currPosX && mouseY == currPosY) {
+        movementWay = -100;
+        document.body.style.cursor = "none";
     }
 
     /*
     console.log(`Mouse POS: ${mouseX}, ${mouseY}
         \nPac POS: ${currPosX}, ${currPosY}`);
     */
-    
-    return [currPosX, currPosY];
+    return [currPosX, currPosY, movementWay];
 }
 
 export function getCursorPos(event: MouseEvent) {
