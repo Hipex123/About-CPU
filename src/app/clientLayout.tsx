@@ -16,10 +16,8 @@ wayIndex[4] = 7;
 export default function ClientLayout({children}: {children: React.ReactNode}) {
     const svgRef = useRef(null);
 
-    const [posX, setPosX] = useState(getRandomInt(window.screen.width/1.5, window.screen.width/1.2));
-    const [posY, setPosY] = useState(getRandomInt(window.screen.height/4, window.screen.height/1.5));
-
-    setStartPos(posX, posY);
+    const [posX, setPosX] = useState(1000);
+    const [posY, setPosY] = useState(500);
 
     let pacImages = {
     full: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAT0lEQVQoFWNkQAP//zP8RxNiYGRkYEQWg3OwKUZWCGLDNIM1EaMBZgBIIxOMQwrNSIotMIPJsmmQa6JjkMOCkZigR0kRMI0gGptmmGKYOgCKhBURRg4NdgAAAABJRU5ErkJggg==",
@@ -42,6 +40,15 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     let baseAnimIndex = [0, 2, 1, 2];
 
     useEffect(() => {
+        if (typeof window !== "undefined") {
+            const randNumX = getRandomInt(window.screen.width/1.5, window.screen.width/1.2);
+            const randNumY = getRandomInt(window.screen.height/4, window.screen.height/1.5);
+
+            setPosX(randNumX);
+            setPosY(randNumY);
+            setStartPos(randNumX, randNumY);
+        }
+
         const tick = () => {
             const [newPosX, newPosY, newMovWay] = chase();
             setPosX(newPosX);
@@ -93,7 +100,6 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
                     width="13"
                     height="13"
                     preserveAspectRatio="none"
-                    style={{ imageRendering: "optimizeSpeed" } as any}
                     href={pacImages[keys[animFrame]]}
                     id="image1" />
                 </g>
