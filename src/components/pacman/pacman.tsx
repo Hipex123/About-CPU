@@ -5,40 +5,31 @@ let currPosY: number;
 
 export function chase() {
     let movementWay = 0;
+    const speed = 2;
 
     const treshold = 0;
 
     const dx = mouseX - currPosX;
     const dy = mouseY - currPosY; 
-
+    
     document.body.style.cursor = "auto";
 
     if (Math.abs(dx) > treshold) {
 
-        currPosX += Math.sign(dx);
+        currPosX += Math.sign(dx) * (Math.abs(dx) < speed ? 1 : speed);
+        movementWay = Math.sign(dx) === 1 ? 0 : 2;
 
-        if (Math.sign(dx) == 1){
-            movementWay = 0;
-        }
-        else {
-            movementWay = 2;
-        }
     }
     else if (Math.abs(dy) > treshold) {
-        if (currPosY > -250) {
+        if (currPosY > 60) {
 
-            currPosY += Math.sign(dy);
+            currPosY += Math.sign(dy) * (Math.abs(dy) < speed ? 1 : speed);
+            movementWay = Math.sign(dy) === 1 ? 6 : 4;
 
-            if (Math.sign(dy) == 1){
-                movementWay = 6;
-            }
-            else {
-                movementWay = 4;
-            }
         }
-        else if (mouseY > -200) {
-            currPosY += 1
-        }
+        else if (mouseY > 100) {
+            currPosY += 1;
+        } 
         else {
             movementWay = -100;
         } 
@@ -58,8 +49,8 @@ export function chase() {
 
 export function getCursorPos(event: MouseEvent) {
     mouseX = event.clientX-60;
-    mouseY = event.clientY-365;
-    //console.log(`${posX}, ${posY}`);
+    mouseY = event.clientY-50;
+    //console.log(`${mouseX}, ${mouseY}`);
 }
 
 export function setStartPos(startX: number, startY: number){
