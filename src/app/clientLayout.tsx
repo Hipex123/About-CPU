@@ -19,6 +19,8 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     const [posX, setPosX] = useState(1000);
     const [posY, setPosY] = useState(500);
 
+    let lastTime = 0;
+
     let pacImages = {
     full: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAT0lEQVQoFWNkQAP//zP8RxNiYGRkYEQWg3OwKUZWCGLDNIM1EaMBZgBIIxOMQwrNSIotMIPJsmmQa6JjkMOCkZigR0kRMI0gGptmmGKYOgCKhBURRg4NdgAAAABJRU5ErkJggg==",
     rightOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZUlEQVQoFYWSUQrAMAhDdez+V3akw+JKkvmjWJ8JbTNIVEWd7czI7t1dILPhed71ph0wVQBeTat8AphbSkqFAYCkkgIk5AAJKbsAENKeA3+vnFmVSq8R/uBbCUPW0vhGH8huH9AD/SUeFNBCLRUAAAAASUVORK5CYII=",
@@ -49,11 +51,15 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
             setStartPos(randNumX, randNumY);
         }
 
-        const tick = () => {
-            const [newPosX, newPosY, newMovWay] = chase();
-            setPosX(newPosX);
-            setPosY(newPosY);
-            movWay = newMovWay;
+        const tick = (currentTime: number) => {
+            if (lastTime) {
+                const dt = (currentTime - lastTime) / 16.67; // Normalize to ~60 FPS
+                const [newPosX, newPosY, newMovWay] = chase(dt);
+                setPosX(newPosX);
+                setPosY(newPosY);
+                movWay = newMovWay;
+            }
+            lastTime = currentTime;
             requestAnimationFrame(tick);
         };
 

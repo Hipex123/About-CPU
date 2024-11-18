@@ -3,9 +3,9 @@ let mouseY: number;
 let currPosX: number;
 let currPosY: number;
 
-export function chase() {
+export function chase(dt: number) {
     let movementWay = 0;
-    const speed = 2;
+    const speed = Math.round(3 * dt);
 
     const treshold = 0;
 
