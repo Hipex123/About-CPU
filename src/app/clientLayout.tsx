@@ -30,7 +30,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     upOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAXklEQVQoFb2RQQ4AIQgDYf//Z0w3KcGK0ZNeCLRjI5q9Oh5hgTB381MovR+NHLDXWvWEYKpChXQ+QR2oADwLVMEOgP4/fifCoAcLa5PUqH2u+SaN35IQb+tgmul5VwdyASb0Jbd7IQAAAABJRU5ErkJggg==",
     upMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAZUlEQVQoFaWPgQoAIQhDtf//Z2PBDlkLigui1LetIv6sqihs56GzAegEqwG5JepDDtjTGv3hmhS4E/yW5EDtWRHTeV6JFNI6T24K9jpRvAgzI+2fuqu7r6TbNKSA/UR0dE8lTGYC6ckv7F8xFIAAAAAASUVORK5CYII=",
     downOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWUlEQVQoFb2PUQoAIAhDtfvf2Vhg1FIqiPwx9c2ZyK9QNjIT456qTFwvIjgTN9GJwBfAtXhxkzVzwcZsFjr5xz3zFYuIQa6xYBJFACDudxEPAI+xm4/su3cFrhYPJD3qBfAAAAAASUVORK5CYII=",
-    downMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAAWUlEQVQoFb2PUQoAIAhDtfvf2Vhg1FIqiPwx9c2ZyK9QNjIT456qTFwvIjgTN9GJwBfAtXhxkzVzwcZsFjr5xz3zFYuIQa6xYBJFACDudxEPAI+xm4/su3cFrhYPJD3qBfAAAAAASUVORK5CYII="
+    downMidOpen: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAANCAYAAABy6+R8AAAACXBIWXMAAA7DAAAOwwHHb6hkAAAA&#10;YklEQVQoFZWOUQoAIAhDtfvf2TBYjKVg/ehsb+omL8JCRuZuzrMrKjMbswd8oAmAgAQXxE/1ny0I&#10;bjfhfhi5thCbtC8hbEEdQWpSvbo0NUKn/zlPQ1QnfKDqA8lcpz5mbr8BsVAMLfEG6rQAAAAASUVO&#10;RK5CYII=&#10;"
     };
 
     const keys = Object.keys(pacImages) as (keyof typeof pacImages)[];
@@ -53,7 +53,9 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
 
         const tick = (currentTime: number) => {
             if (lastTime) {
-                const dt = (currentTime - lastTime) / 16.67; // Normalize to ~60 FPS
+
+                const dt = (currentTime - lastTime) / 16.67;
+
                 const [newPosX, newPosY, newMovWay] = chase(dt);
                 setPosX(newPosX);
                 setPosY(newPosY);

@@ -4,6 +4,7 @@ export default function cpuDescription() {
     return (
         <main>
             <h1>Multimedia</h1>
+          
             <Image src="/cpu1.jpg" alt="CPU image 1" width={700} height={500} />
             <Image src="/cpu2.jpg" alt="CPU image 1" width={700} height={500} />
             <Image src="/cpu3.jpg" alt="CPU image 1" width={700} height={500} />
