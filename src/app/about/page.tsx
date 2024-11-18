@@ -2,12 +2,12 @@ export default function AboutAuthors() {
     return (
         <main>
             <h1>About Authors</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eveniet dolorem similique cupiditate tempore laboru
-                m facilis illo inventore voluptate, ipsa optio quide
-                m possimus soluta? Dolore aliquam, minus nihil impedit fa
-                cilis sint.
-            </p>
+            <ul>
+                <li className="Authors"><strong>M. Š.</strong> - Website</li>
+                <li className="Authors"><strong>M. K.</strong> - Pictures</li>
+                <li className="Authors"><strong>G. S.</strong> - Pictures, Informations, CSS Suggestions</li>
+                <li className="Authors"><strong>N. P.</strong> - Quiz</li>
+            </ul>
         </main>
     );
 }
