@@ -1,4 +1,4 @@
-export default function cpuDescription() {
+export default function AboutAuthors() {
     return (
         <main>
             <h1>About Authors</h1>

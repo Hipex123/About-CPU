@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export default function cpuDescription() {
+export default function Multimedia() {
     return (
         <main>
             <h1>Multimedia</h1>

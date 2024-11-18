@@ -1,4 +1,4 @@
-export default function cpuDescription() {
+export default function CPUDescription() {
     return (
         <main>
             <h1>CPU</h1>

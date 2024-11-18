@@ -1,4 +1,4 @@
-export default function cpuDescription() {
+export default function Resources() {
     return (
         <main>
             <h1>Resources</h1>

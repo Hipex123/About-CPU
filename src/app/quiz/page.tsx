@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-export default function cpuDescription() {
+export default function Quiz() {
     useEffect(() => {
         const script = document.createElement("script");
         script.src = "//embed.typeform.com/next/embed.js";
