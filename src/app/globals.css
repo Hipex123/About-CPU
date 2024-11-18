@@ -29,8 +29,27 @@ h1 {
   font-size: 70px;
   font-family: "Inter", sans-serif;
   font-weight: 900;
-  margin-left: 5rem;
+  margin-left: 2vw;
   z-index: 1;
+}
+
+h2 {
+  color: rgb(240, 245, 255);
+  font-size: 40px;
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+  margin-left: 5vw;
+  z-index: 1;
+}
+
+ul li {
+  color: rgb(240, 245, 255);
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+  padding-left: 8vw;
+  z-index: 1;
+  list-style-type: none;
 }
 
 p {
@@ -38,7 +57,32 @@ p {
   font-size: 20px;
   font-family: "Inter", sans-serif;
   font-weight: 600;
-  margin-left: 5rem;
+  margin-left: 8vw;
+  margin-right: 3vw;
+  z-index: 1;
+}
+
+.resources {
+  font-family: "Inter", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin-left: 3vw;
+  margin-right: 3vw;
+  z-index: 1;
+}
+
+img {
+  margin-left: 5vw;
+  margin-bottom: 3vh;
+}
+
+.homeP {
+  color: rgb(240, 245, 255);
+  font-size: 20px;
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+  margin-left: 2vw;
+  margin-right: 3vw;
   z-index: 1;
 }
 

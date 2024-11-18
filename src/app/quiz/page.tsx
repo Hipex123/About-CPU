@@ -1,13 +1,24 @@
+"use client"
+
+import { useEffect } from "react";
+
 export default function cpuDescription() {
+    useEffect(() => {
+        const script = document.createElement("script");
+        script.src = "//embed.typeform.com/next/embed.js";
+        script.async = true;
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        };
+    }, []);
+    
     return (
         <main>
             <h1>Quiz</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eveniet dolorem similique cupiditate tempore laboru
-                m facilis illo inventore voluptate, ipsa optio quide
-                m possimus soluta? Dolore aliquam, minus nihil impedit fa
-                cilis sint.
-            </p>
+
+            <div data-tf-live="01JCQS3F1PQ47N7DQKGEQN6GZN"></div>
         </main>
     );
 }

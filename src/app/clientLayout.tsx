@@ -36,7 +36,7 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
     const keys = Object.keys(pacImages) as (keyof typeof pacImages)[];
 
     const [animFrame, setAnimFrame] = useState(0);
-    let [movWay, setMovWay] = useState(0);
+    let [movWay] = useState(0);
 
     let animIndexCouter = 0;
     let baseAnimIndex = [0, 2, 1, 2];
@@ -53,7 +53,9 @@ export default function ClientLayout({children}: {children: React.ReactNode}) {
 
         const tick = (currentTime: number) => {
             if (lastTime) {
+
                 const dt = (currentTime - lastTime) / 16.67;
+
                 const [newPosX, newPosY, newMovWay] = chase(dt);
                 setPosX(newPosX);
                 setPosY(newPosY);

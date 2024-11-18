@@ -1,13 +1,15 @@
+import Image from "next/image";
+
 export default function cpuDescription() {
     return (
         <main>
             <h1>Multimedia</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Eveniet dolorem similique cupiditate tempore laboru
-                m facilis illo inventore voluptate, ipsa optio quide
-                m possimus soluta? Dolore aliquam, minus nihil impedit fa
-                cilis sint.
-            </p>
+          
+            <Image src="/cpu1.jpg" alt="CPU image 1" width={700} height={500} />
+            <Image src="/cpu2.jpg" alt="CPU image 1" width={700} height={500} />
+            <Image src="/cpu3.jpg" alt="CPU image 1" width={700} height={500} />
+            <Image src="/cpu4.jpg" alt="CPU image 1" width={700} height={500} />
+            <Image src="/cpu5.jpg" alt="CPU image 1" width={700} height={500}/>
         </main>
     );
 }

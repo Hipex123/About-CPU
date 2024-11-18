@@ -1,9 +1,10 @@
 .pacman {
     /* Dear reader, if you are going to complain that there are only 4 lines in this CSS,
-    please remember that these 4 lines took 6 hours of my life,
+    please remember that these 5 lines took 6 hours of my life,
     which I will never get back. */
     position: fixed;
     opacity: 0.3;
     transform: scale(1);
     image-rendering: pixelated;
+    z-index: -1;
 }
