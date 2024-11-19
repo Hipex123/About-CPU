@@ -68,15 +68,20 @@ p {
 img {
   margin-left: 5vw;
   margin-bottom: 3vh;
-  border-style: solid;
+  border-style: double;
   border-width: 0.3vw;
   border-color: rgb(79, 130, 189);
   box-shadow: 0 0 5vw rgba(120, 229, 248, 0.384);
 }
 
+.imageContainer {
+  width: 30vw;
+  height: 15vh;
+}
+
 .Authors {
   color: rgb(240, 245, 255);
-  font-size: 40px;
+  font-size: 2vw;
   font-family: "Inter", sans-serif;
   font-weight: 400;
   padding-left: 8vw;
@@ -86,7 +91,7 @@ img {
 
 .resources {
   font-family: "Inter", sans-serif;
-  font-size: 30px;
+  font-size: 1vw;
   font-weight: 600;
   margin-left: 3vw;
   margin-right: 3vw;
