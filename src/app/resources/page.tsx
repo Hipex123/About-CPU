@@ -10,6 +10,7 @@ export default function Resources() {
             </a>
 
             <br />
+            <br />
 
             <a className="resources"
                 href="https://www.techgeekbuzz.com/blog/cpu-architecture/"
@@ -17,6 +18,7 @@ export default function Resources() {
                 "CPU Architecture." TechGeekBuzz, n.d.
             </a>
 
+            <br />
             <br />
 
             <a className="resources"

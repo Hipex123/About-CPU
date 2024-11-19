@@ -5,7 +5,7 @@ export default function CPUDescription() {
 
             <section>
                 <h2>Nadzorna enota (CU)</h2>
-                <p>
+                <p className="bubbleP">
                     Nadzorna enota je koordinator centralnega procesorja in usmerja pretok informacij med 
                     centralnim procesorjem in drugimi sestavnimi deli sistema. Dekodira navodila, pridobljena 
                     iz pomnilnika, in določa zaporedje, v katerem je treba izvesti operacije. Enota CU zagotavlja 
