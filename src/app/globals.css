@@ -73,6 +73,7 @@ img {
   border-color: rgb(79, 130, 189);
   box-shadow: 0 0 5vw rgba(120, 229, 248, 0.384);
   transition: transform 0.2s ease-in-out;
+  border-radius: 4px;
 }
 
 img:hover {
@@ -85,11 +86,17 @@ img:hover {
 }
 
 .bubbleP {
-  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 20px;
+  padding-right: 0.1vw;
+  padding-left: 0.8vw;
+  cursor: none;
 }
 
 .bubbleP:hover{
   transform: scale(1.1);
+  background-color: #0a0a0a;
+  box-shadow: 0 0 5vw rgba(0, 0, 0, 0.579);
 }
 
 .authors {
