@@ -18,7 +18,7 @@ export default function Quiz() {
         <main>
             <h1>Quiz</h1>
 
-            <div data-tf-live="01JCQS3F1PQ47N7DQKGEQN6GZN"></div>
+            <div data-tf-live="01JD4NF6K59QJDW743ZZMY2313"></div>
         </main>
     );
 }
