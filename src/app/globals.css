@@ -74,6 +74,8 @@ img {
   box-shadow: 0 0 5vw rgba(120, 229, 248, 0.384);
   transition: transform 0.2s ease-in-out;
   border-radius: 4px;
+  max-width: 100%;
+  height: auto;
 }
 
 figcaption {
