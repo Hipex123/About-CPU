@@ -94,8 +94,10 @@ img:hover {
 }
 
 .imageContainer {
-  width: 30vw;
-  height: 15vh;
+  width: 40vw;
+  height: 20vh;
+  max-width: auto;
+  max-height: auto;
 }
 
 .bubbleP {
